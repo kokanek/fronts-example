@@ -1,26 +1,13 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import { globalTransport } from "fronts-react";
+import { Button, Box } from "@chakra-ui/react"
 
-const style = {
-  padding: 12,
-  backgroundColor: "#cccccc",
-};
-
-const Button = () => {
+const Component = () => {
   const [count, setCount] = useState(0);
   return (
-    <div style={style}>
-      <button
-        type="button"
-        onClick={() => {
-          setCount(count + 1);
-          globalTransport.emit("increase");
-        }}
-      >
-        App2 Button click {count} time
-      </button>
-    </div>
+    <Button colorScheme="blue">Browse products</Button>
   );
 };
 
-export default Button;
+export default Component;

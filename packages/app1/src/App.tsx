@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { HashRouter, Route, Switch } from "react-router-dom";
+import { ChakraProvider } from "@chakra-ui/react"
 import { useApp, globalTransport } from "fronts-react";
 import Navigation from "./Navigation";
 import HomePage from "./HomePage";
 
+
 const routes = [
   {
     path: "/",
-    component: HomePage,
+    component: () => <HomePage />,
     exact: true,
   },
   {
@@ -24,6 +26,7 @@ const routes = [
 ];
 
 const App = () => {
+  console.log('reached here');
   const [count, setCount] = useState(0);
   useEffect(
     () =>
@@ -32,24 +35,32 @@ const App = () => {
       }),
     [count]
   );
+  useEffect(
+    () =>
+      globalTransport.listen("decrease", () => {
+        setCount(count - 1);
+      }),
+    [count]
+  );
+
   return (
-    <HashRouter>
-      <div>
-        <h1>App 1</h1>
-        <p>{count}</p>
-        <Navigation />
-        <Switch>
-          {routes.map((route) => (
-            <Route
-              key={route.path}
-              path={route.path}
-              component={route.component}
-              exact={route.exact}
-            />
-          ))}
-        </Switch>
-      </div>
-    </HashRouter>
+    <ChakraProvider>
+      <HashRouter>
+        <div>
+          <Navigation cartCount={count} />
+          <Switch>
+            {routes.map((route) => (
+              <Route
+                key={route.path}
+                path={route.path}
+                component={route.component}
+                exact={route.exact}
+              />
+            ))}
+          </Switch>
+        </div>
+      </HashRouter>
+    </ChakraProvider>
   );
 };
 

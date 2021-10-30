@@ -1,27 +1,16 @@
+import { Link } from 'react-router-dom';
 import React from "react";
-
-const Button = React.lazy(() => import("app2/src/Button"));
-
-const style = {
-  height: 400,
-  backgroundColor: "#673ab7",
-  color: "white",
-  padding: 12,
-};
+import { Heading, Flex, Button } from "@chakra-ui/react"
+// const Button = React.lazy(() => import("app2/src/Button"));
 
 const HomePage = () => (
-  <>
-    <div style={style}>
-      <h1>Home Page</h1>
-      <h2>Welcome to the future!</h2>
-      <p>
-        <em>a page being provided by App 1</em>
-      </p>
-    </div>
-    <React.Suspense fallback={<div>Loading...</div>}>
-      <Button />
-    </React.Suspense>
-  </>
+  <Flex align='center' justify='center' direction='column' h={400} bg='blue.100'>
+    <Heading as="h1" size="4xl" isTruncated>
+      Welcome to our site!
+    </Heading>
+
+    <Link to="/app2"><Button colorScheme="blue" mt={8}>Browse products</Button></Link>
+  </Flex>
 );
 
 export default HomePage;
