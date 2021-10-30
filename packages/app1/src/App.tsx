@@ -26,7 +26,6 @@ const routes = [
 ];
 
 const App = () => {
-  console.log('reached here');
   const [count, setCount] = useState(0);
   useEffect(
     () =>

@@ -12,7 +12,6 @@ const App = () => {
     const newProd = [...prod];
 
     newProd.forEach(p => {
-
       if (p.id === pid) {
         if (!p.active) {
           globalTransport.emit("increase");

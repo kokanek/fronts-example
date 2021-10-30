@@ -1,9 +1,15 @@
 {
   "name": "app2",
-  "exports": ["./src/bootstrap", "./src/Button"],
+  "exports": [
+    "./src/bootstrap"
+  ],
   "dependencies": {},
   "shared": {
-    "react": { "singleton": true },
-    "react-dom": { "singleton": true }
+    "react": {
+      "singleton": true
+    },
+    "react-dom": {
+      "singleton": true
+    }
   }
 }

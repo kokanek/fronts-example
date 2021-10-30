@@ -28,10 +28,10 @@ function CartButton({ cartCount }) {
       icon={<>
         Cart
         <FaShoppingCart color={'gray.750'} />
-        <Box as={'span'} color={'white'} position={'absolute'} top={'0px'} right={'4px'} fontSize={'0.8rem'}
-          bgColor={'red'} borderRadius={'lg'} zIndex={9999} p={'2px'} >
+        {cartCount > 0 && <Box as={'span'} color={'white'} position={'absolute'} top={-2} right={1} fontSize={'0.8rem'}
+          bgColor={'red'} borderRadius={'lg'} zIndex={9999} p={1} >
           {cartCount}
-        </Box>
+        </Box>}
       </>}
     />
   )

@@ -4,7 +4,7 @@ import { Heading, Flex, Button } from "@chakra-ui/react"
 // const Button = React.lazy(() => import("app2/src/Button"));
 
 const HomePage = () => (
-  <Flex align='center' justify='center' direction='column' h={400} bg='blue.100'>
+  <Flex align='center' justify='center' direction='column' h={400} bg='pink.100'>
     <Heading as="h1" size="4xl" isTruncated>
       Welcome to our site!
     </Heading>
